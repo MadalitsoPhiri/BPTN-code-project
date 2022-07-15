@@ -1,9 +1,8 @@
-import React, {useContext} from 'react';
-import {MoviesContext} from '../../navigation';
+import {useContext} from 'react';
+import {MoviesContext} from '../../context';
 
 export const useProcessLiked = () => {
-  const {loading, response, error, movies, set_movies} =
-    React.useContext(MoviesContext);
+  const {movies, set_movies} = useContext(MoviesContext);
   const set_liked = (index: number) => {
     if (movies[index]) {
       const copy = [...movies];

@@ -5,8 +5,9 @@ import {View, Text, StyleSheet} from 'react-native';
 import {Heart, Home} from '../../screens/Components';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useGetPopularMovies} from '../../hooks/useGetPopularMovies';
+import {getPlatform} from '../../utilities';
+import {MoviesContext} from '../../context';
 
-export const MoviesContext = React.createContext(null);
 const styles = StyleSheet.create({
   header_title: {
     color: 'white',
@@ -27,16 +28,18 @@ export const MainTabNavigator = () => {
           tabBarStyle: {
             backgroundColor: 'black',
           },
-          header: args => {
-            console.log('args', args);
-            return (
-              <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}>
-                <View style={{height: 120}}>
-                  <Text style={styles.header_title}>Movies</Text>
-                </View>
-              </SafeAreaView>
-            );
-          },
+          header:
+            getPlatform() === 'ios'
+              ? () => {
+                  return (
+                    <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}>
+                      <View style={{height: 120}}>
+                        <Text style={styles.header_title}>Movies</Text>
+                      </View>
+                    </SafeAreaView>
+                  );
+                }
+              : undefined,
         }}>
         <Tab.Screen
           name="Movies"
@@ -49,6 +52,9 @@ export const MainTabNavigator = () => {
               />
             ),
             tabBarActiveTintColor: '#FFFFFF',
+            title: 'Movies',
+            headerTintColor: 'white',
+            headerStyle: {backgroundColor: 'black'},
           }}
         />
         <Tab.Screen
@@ -62,6 +68,9 @@ export const MainTabNavigator = () => {
               />
             ),
             tabBarActiveTintColor: '#FFFFFF',
+            title: 'Movies',
+            headerTintColor: 'white',
+            headerStyle: {backgroundColor: 'black'},
           }}
         />
       </Tab.Navigator>

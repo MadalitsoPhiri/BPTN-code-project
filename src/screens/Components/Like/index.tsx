@@ -3,7 +3,7 @@ import Svg, {Path} from 'react-native-svg';
 import {StyleProp, TextStyle} from 'react-native';
 interface LikeProps {
   style: StyleProp<TextStyle>;
-  liked: boolean;
+  liked: boolean | undefined;
 }
 export const Like: FC<LikeProps> = ({liked, style}) => {
   return liked ? (

@@ -1,18 +1,15 @@
 import {FlatList, ListRenderItem, StyleSheet, Text, View} from 'react-native';
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import {Loading, MovieInterface, MovieItem} from '../Components';
-
-import {MoviesContext} from '../../navigation';
+import {MoviesContext} from '../../context';
 
 const renderItem: ListRenderItem<MovieInterface> = ({item, index}) => {
   return <MovieItem item={item} index={index} />;
 };
 export const Movies = () => {
   const {loading, response, error, movies} = React.useContext(MoviesContext);
-  useEffect(() => {
-    console.log('liked movies changed');
-  }, [movies]);
+
   return (
     <View style={styles.container}>
       {loading ? (
@@ -23,7 +20,7 @@ export const Movies = () => {
           <FlatList
             data={movies}
             renderItem={renderItem}
-            contentContainerStyle={{marginTop: 20}}
+            contentContainerStyle={{marginTop: 20, paddingBottom: 15}}
           />
         </>
       ) : (

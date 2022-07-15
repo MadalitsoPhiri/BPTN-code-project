@@ -1,16 +1,8 @@
-import {
-  FlatList,
-  Image,
-  ImageBackground,
-  ListRenderItem,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {FlatList, ListRenderItem, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect} from 'react';
 
 import {Loading, MovieInterface, MovieItem} from '../Components';
-import {MoviesContext} from '../../navigation';
+import {MoviesContext} from '../../context';
 
 const renderItem: ListRenderItem<MovieInterface> = ({item, index}) => {
   return item.liked ? <MovieItem item={item} index={index} /> : null;

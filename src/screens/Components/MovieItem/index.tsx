@@ -82,7 +82,7 @@ export const MovieItem: FC<ItemProps> = ({item, index}) => {
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 15,
-    marginBottom: 10,
+    marginBottom: 20,
     display: 'flex',
     flexDirection: 'column',
   },
@@ -98,7 +98,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
-    marginTop: 15,
   },
   image_badge: {
     borderRadius: 8,
@@ -114,7 +113,7 @@ const styles = StyleSheet.create({
   badge_text: {color: 'white', fontWeight: '900', fontSize: 10},
   item_title: {
     fontWeight: '900',
-    fontSize: 16,
+    fontSize: 18,
     color: 'white',
     marginBottom: 15,
   },
