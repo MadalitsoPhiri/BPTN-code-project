@@ -9,9 +9,7 @@ const renderItem: ListRenderItem<MovieInterface> = ({item, index}) => {
 };
 export const Liked = () => {
   const {loading, response, error, movies} = React.useContext(MoviesContext);
-  useEffect(() => {
-    console.log('liked movies changed');
-  }, [movies]);
+
   return (
     <View style={styles.container}>
       {loading ? (

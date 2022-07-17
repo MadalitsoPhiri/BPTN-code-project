@@ -17,13 +17,12 @@ export const useGetPopularMovies = () => {
     }
 
     if (response) {
-      console.log('response', response);
-      const result = response as MovieResponse;
-      const copy: MovieInterface[] = [];
-      result.results.map((item: MovieInterface) => {
-        copy.push({...item, liked: false});
+      const movie_response = response as MovieResponse;
+      const processed_movie_response: MovieInterface[] = [];
+      movie_response.results.map((item: MovieInterface) => {
+        processed_movie_response.push({...item, liked: false});
       });
-      set_movies(copy);
+      set_movies(processed_movie_response);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response, error]);

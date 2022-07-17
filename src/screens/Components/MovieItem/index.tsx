@@ -11,7 +11,7 @@ import {
 import {IMAGE_BASE_URL} from '../../../config';
 import {useProcessLiked} from '../../../hooks/useProcessLiked';
 import {getYear} from '../../../utilities';
-import {Like} from '../Like';
+import {Like} from '../LikeButton';
 
 export interface MovieInterface {
   adult: boolean;

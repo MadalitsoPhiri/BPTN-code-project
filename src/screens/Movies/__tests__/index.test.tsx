@@ -1,8 +1,11 @@
-import {render, screen} from '@testing-library/react-native';
+import {render, screen, waitFor} from '@testing-library/react-native';
 import React from 'react';
 import {Movies} from '..';
-test('renders Movies component', () => {
+test('renders Movies component', async () => {
   render(<Movies />);
-  screen.getByText('All');
+  // screen.getByText('All');
+  await waitFor(() => {
+    expect(screen.getByText('All')).toBeDefined();
+  });
   //   expect(default_text).to('Movies');
 });
